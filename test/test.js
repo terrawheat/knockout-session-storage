@@ -26,6 +26,8 @@ var Sample = function () {
         baz: ko.observableArray([1, 2])
     };
 
+    this.nonObservableValue = 'foo';
+
     this.pureComputedProperty = ko.pureComputed(function () {
         return 30;
     });
@@ -48,6 +50,10 @@ describe('Given a session storage saver', function () {
         beforeEach(function () {
             sStorage.save(new Sample());
             result = JSON.parse(window.sessionStorage.getItem('ko_storage_test'));
+        });
+
+        it('stores non-observed properties correctly', function () {
+            assert.equal(result.nonObservableValue, 'foo');
         });
 
         it('stores numbers correctly', function () {
@@ -101,6 +107,11 @@ describe('Given a session storage saver', function () {
 
         viewModel = {};
         ko.sessionStorage.restore(viewModel);
+
+        it('should restore non-observables correctly', function () {
+            assert.notObservable(viewModel.nonObservableValue);
+            assert.equal(viewModel.nonObservableValue, 'foo');
+        });
 
         it('should restore numbers correctly', function () {
             assert.observable(viewModel.valueNumber);
