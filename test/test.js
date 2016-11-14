@@ -1,8 +1,13 @@
-Assertion.addProperty('observable', function () {
+window.chai.Assertion.addMethod('observable', function () {
     this.assert(
         ko.isObservable(this._obj),
-        'expected #{this} to be an observable, actually #{act}',
-        'expected #{this} to not be an observable',
+        'expected #{this} to be an observable, actually #{act}'
+    );
+});
+window.chai.Assertion.addMethod('notObservable', function () {
+    this.assert(
+        !ko.isObservable(this._obj),
+        'expected #{this} to not be an observable'
     );
 });
 
@@ -176,8 +181,8 @@ describe('Given a session storage saver', function () {
         });
 
         it('computed properties behave predictably after a restore', function () {
-            assert.equal(result.pureComputedProperty(), 30);
-            assert.equal(result.computedProperty(), 123);
+            assert.equal(viewModel.pureComputedProperty(), 30);
+            assert.equal(viewModel.computedProperty(), 123);
         })
 
         it('prototypal functions are still present', function () {
