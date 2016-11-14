@@ -1,0 +1,28 @@
+{
+  "name": "knockout-session-storage",
+  "version": "1.0.0",
+  "description": "A plugin for knockout to allow saving a view model transparently to session storage",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha-phantomjs test/index.html"
+  },
+  "keywords": [
+    "knockout",
+    "session",
+    "storage",
+    "view",
+    "model",
+    "persistence"
+  ],
+  "author": "Matt Wheatley",
+  "license": "ISC",
+  "peerDependencies": {
+    "knockout": "^3.4.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "mocha-phantomjs": "^4.1.0",
+    "phantomjs": "^2.1.7"
+  }
+}
