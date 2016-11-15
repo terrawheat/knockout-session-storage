@@ -4,7 +4,7 @@
   "description": "A plugin for knockout to allow saving a view model transparently to session storage",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha-phantomjs test/index.html"
+    "test": "./node_modules/.bin/mocha-phantomjs test/index.html -b"
   },
   "keywords": [
     "knockout",
@@ -17,7 +17,8 @@
   "author": "Matt Wheatley",
   "license": "ISC",
   "peerDependencies": {
-    "knockout": "^3.4.1"
+    "knockout": "^3.4.1",
+    "knockout-mapping": "^2.6.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
